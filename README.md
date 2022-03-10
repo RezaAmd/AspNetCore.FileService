@@ -1,5 +1,10 @@
-# AspNetCore.FileService
-An Asp.net core service for manage file on directory.
+<div align="center">
+   <h1>AspNetCore.FileService</h1>
+    <p>An Asp.net core service for manage file and directory. 🗂️</p
+    <p>
+        <a href="https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.1" target="_blank"><img src="https://badgen.net/badge/.net core/v3.1/purple"/></a>
+    </p>
+</div>
 
 ## How to use?
 At first you must add this service on `Startup.cs -> ConfigureServices()`
@@ -31,4 +36,11 @@ public IActionResult Test([FromForm] IFormFile file)
     }
     return BadRequest();
 }
+```
+## Latest version changes?
+```
+3.1.0 -> CopyToPath(FILE, PATH)
+```
+```
+3.1.1 -> DeleteFromPath(FULL_PATH)
 ```
