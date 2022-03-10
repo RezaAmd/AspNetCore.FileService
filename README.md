@@ -32,3 +32,10 @@ public IActionResult Test([FromForm] IFormFile file)
     return BadRequest();
 }
 ```
+## Latest version changes?
+```
+3.1.0 -> CopyToPath()
+```
+```
+3.1.1 -> DeleteFromPath()
+```
