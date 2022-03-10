@@ -52,7 +52,7 @@ namespace AspNetCore.FileServices
         /// <param name="file">The file you want to upload.</param>
         /// <param name="path">The path where you want the file to be saved.</param>
         /// <param name="fileName">File name with extension.</param>
-        public void Upload(IFormFile file, string path, string fileName)
+        public void CopyToPath(IFormFile file, string path, string fileName)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace AspNetCore.FileServices
         /// <param name="file">The file you want to upload.</param>
         /// <param name="path">The path where you want the file to be saved.</param>
         /// <param name="fileName">File name with extension.</param>
-        public async Task UploadAsync(IFormFile file, string path, string fileName, CancellationToken cancellationToken = default)
+        public async Task CopyToPathAsync(IFormFile file, string path, string fileName, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace AspNetCore.FileServices
         /// Upload list of files in diffrent path.
         /// </summary>
         /// <param name="uploadFiles">List of upload parameter model object.</param>
-        public void Upload(List<UploadParameter> uploadFiles)
+        public void CopyToPath(List<UploadParameter> uploadFiles)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace AspNetCore.FileServices
         /// Upload list of files in diffrent path.
         /// </summary>
         /// <param name="uploadFiles">List of upload parameter model object.</param>
-        public async Task UploadAsync(List<UploadParameter> uploadFiles, CancellationToken cancellationToken = default)
+        public async Task CopyToPathAsync(List<UploadParameter> uploadFiles, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -118,6 +118,51 @@ namespace AspNetCore.FileServices
             {
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Delete a specific file.
+        /// </summary>
+        /// <param name="path">File full path you want delete.</param>
+        /// <returns>The command is run or not? true/false</returns>
+        public bool DeleteFromFullPath(string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                    return true;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Delete a specific file.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public async Task<bool> DeleteFromFullPathAsync(string path)
+        {
+            try
+            {
+
+                if (Directory.Exists(path))
+                {
+                    await Task.Run(() => { File.Delete(path); });
+                    return true;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return false;
         }
     }
     #region Models
