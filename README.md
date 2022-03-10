@@ -34,8 +34,8 @@ public IActionResult Test([FromForm] IFormFile file)
 ```
 ## Latest version changes?
 ```
-3.1.0 -> CopyToPath()
+3.1.0 -> CopyToPath(FILE, PATH)
 ```
 ```
-3.1.1 -> DeleteFromPath()
+3.1.1 -> DeleteFromPath(FULL_PATH)
 ```
