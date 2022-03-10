@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>1.0.0</Version>
+    <PackageId>AspNetCore.FileService</PackageId>
+    <Authors>Reza Ahmadi</Authors>
+    <Description>A Asp.net core service for upload file in directory.</Description>
+    <PackageProjectUrl>https://github.com/RezaAmd/AspNetCore.FileService</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RezaAmd/AspNetCore.FileService</RepositoryUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageTags>File, File Manager, File Service</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+  </ItemGroup>
+
+</Project>
