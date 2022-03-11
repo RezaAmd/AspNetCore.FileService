@@ -14,6 +14,7 @@ namespace AspNetCore.FileServices
         /// <param name="path">The path where you want the file to be saved.</param>
         /// <param name="fileName">File name with extension.</param>
         void CopyToPath(IFormFile file, string path, string fileName = null);
+
         /// <summary>
         /// Upload a specific file.
         /// </summary>
@@ -21,6 +22,7 @@ namespace AspNetCore.FileServices
         /// <param name="path">The path where you want the file to be saved.</param>
         /// <param name="fileName">File name with extension.</param>
         Task CopyToPathAsync(IFormFile file, string path, string fileName = null, CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Upload list of files in diffrent path.
         /// </summary>
