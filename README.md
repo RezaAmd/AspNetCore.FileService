@@ -3,7 +3,9 @@
     <p>An Asp.net core service for manage file and directory. 🗂️</p
     <p>
         <a href="https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-3.1" target="_blank"><img src="https://badgen.net/badge/.net core/v3.1/purple"/></a>
-    </p>
+        <a href="https://www.nuget.org/packages/AspNetCore.FileService" target="_blank"><img src="https://badgen.net/nuget/v/AspNetCore.FileService/latest"/></a>
+        <a href="https://www.nuget.org/packages/AspNetCore.FileService" target="_blank"><img src="https://img.shields.io/nuget/dt/AspNetCore.FileService"/></a>
+   </p>
 </div>
 
 ## How to use?
