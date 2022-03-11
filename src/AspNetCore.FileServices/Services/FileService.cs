@@ -32,7 +32,7 @@ namespace AspNetCore.FileServices
             }
         }
 
-        private async Task _CopyToPathAsync(IFormFile file, string path, string fileName)
+        private async Task _CopyToPathAsync(IFormFile file, string path, string fileName, CancellationToken cancellationToken = default)
         {
             if (file.Length > 0)
             {
@@ -40,12 +40,13 @@ namespace AspNetCore.FileServices
                     Directory.CreateDirectory(path);
                 using (var stream = File.Create(GetFullPath(file, path, fileName)))
                 {
-                    await file.CopyToAsync(stream);
+                    await file.CopyToAsync(stream, cancellationToken);
                 }
             }
         }
         #endregion
 
+        #region Copy
         /// <summary>
         /// Upload a specific file.
         /// </summary>
@@ -119,7 +120,9 @@ namespace AspNetCore.FileServices
                 throw;
             }
         }
+        #endregion
 
+        #region Delete
         /// <summary>
         /// Delete a specific file.
         /// </summary>
@@ -147,14 +150,13 @@ namespace AspNetCore.FileServices
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public async Task<bool> DeleteFromFullPathAsync(string path)
+        public async Task<bool> DeleteFromFullPathAsync(string path, CancellationToken cancellationToken = default)
         {
             try
             {
-
-                if (Directory.Exists(path))
+                if (File.Exists(path))
                 {
-                    await Task.Run(() => { File.Delete(path); });
+                    await Task.Run(() => { File.Delete(path); }, cancellationToken);
                     return true;
                 }
             }
@@ -164,6 +166,7 @@ namespace AspNetCore.FileServices
             }
             return false;
         }
+        #endregion
     }
     #region Models
     public class UploadParameter

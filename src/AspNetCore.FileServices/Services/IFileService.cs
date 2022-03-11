@@ -45,6 +45,6 @@ namespace AspNetCore.FileServices
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        Task<bool> DeleteFromFullPathAsync(string path);
+        Task<bool> DeleteFromFullPathAsync(string path, CancellationToken cancellationToken = default);
     }
 }
